@@ -1,23 +1,14 @@
-import React from 'react';
-import AwesomeSlider from 'react-awesome-slider';
-import 'react-awesome-slider/dist/styles.css';
+import React  from 'react';
 import Header from '../components/header';
-
-const slider = (
-  <AwesomeSlider 
-    animation="foldOutAnimation"
-  >
-    <div data-src="/images/laia.jpeg" />
-    <div data-src="/images/laia_3.jpeg" />
-    <div data-src="/images/laia_6.jpeg" />
-  </AwesomeSlider>
-);
+import Slider from '../components/slider';
+import PopularProducts from '../components/popularProducts';
 
 const IndexContainer = () => {
   return (
     <div>
       <Header />
-      { slider }
+      <Slider />
+      <PopularProducts />
     </div>
   )
 }

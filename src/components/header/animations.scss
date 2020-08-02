@@ -1,0 +1,55 @@
+@keyframes header_scrolled {
+  0% {
+    background-color: transparent;
+    color: transparent;
+  }
+  35% {
+    background-color: $base-store-color;
+    color: rosybrown;
+  }
+  100% {
+    background-color: $base-store-color;
+    color: rosybrown;
+  }
+}
+
+@keyframes header_top {
+  0% {
+    background-color: $base-store-color;
+    color: transparent;
+  }
+  35% {
+    background-color: $base-store-color;
+    color: rosybrown;
+  }
+  100% {
+    background-color: transparent;
+    color: rosybrown;
+  }
+}
+
+@keyframes logo_scrolled {
+  0% {
+    padding-top: 45px;
+    width: 188px;
+    height: 211px;
+  }
+  100% {
+    padding-top: 0px;
+    width: 74px;
+    height: 85px;
+  }
+}
+
+@keyframes logo_top {
+  0% {
+    padding-top: 0px;
+    width: 74px;
+    height: 85px;
+  }
+  100% {
+    padding-top: 45px;
+    width: 188px;
+    height: 211px;
+  }
+}
