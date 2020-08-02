@@ -15,7 +15,7 @@ export const StartGetPopularProducts = () => (dispatch:Dispatch<AppActions>) => 
   API.get('/products')
     .then((res) => dispatch({
       type: GET_POPULAR_PRODUCTS,
-      products: res.data,
+      products: res.data.data,
     }));
 };
 

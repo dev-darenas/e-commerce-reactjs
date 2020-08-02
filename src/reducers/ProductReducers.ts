@@ -7,10 +7,10 @@ import { Product } from '../types/Product';
 
 const initialData: {
   products: Product[],
-  popular_products: Product[],
+  PopularProducts: Product[],
 } = {
   products: [],
-  popular_products: []
+  PopularProducts: []
 };
 
 const projectReducer = (
@@ -19,7 +19,7 @@ const projectReducer = (
 ) => {
   switch (action.type) {
     case GET_POPULAR_PRODUCTS:
-      return { ...state, popular_products: action.products };
+      return { ...state, PopularProducts: action.products };
     case GET_PRODUCTS:
       return { ...state, products: action.products };
     default:
