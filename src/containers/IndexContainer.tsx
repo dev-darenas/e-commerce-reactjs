@@ -8,6 +8,7 @@ const IndexContainer = () => {
     <div>
       <Header />
       <Slider />
+      <hr/>
       <PopularProducts />
     </div>
   )

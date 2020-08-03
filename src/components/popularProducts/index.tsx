@@ -6,6 +6,9 @@ import { AppState } from '../../store';
 import { AppActions } from '../../types/actions';
 import { Product } from '../../types/Product';
 import { StartGetPopularProducts } from '../../actions/ProductActions'
+import Carousel from '@brainhubeu/react-carousel';
+import '@brainhubeu/react-carousel/lib/style.css';
+import CardProduct from '../../components/cardProduct'
 
 interface LinkStateProps {
   products: {
@@ -30,15 +33,20 @@ const PopularProduct = ({
   });
 
   return (
-    <div>
+    <Carousel
+      slidesPerPage={3}
+      infinite
+      centered
+      clickToChange
+      autoPlay={2000}
+      animationSpeed={1000}
+    >
       {
         products.PopularProducts.map((product:Product) => (
-          <div key={product.id} >
-            {product.attributes.name}
-          </div>
+          <CardProduct key={`key_card_product_${product.id}`} product={product} />
         ))
       }
-    </div>
+    </Carousel>
   )
 }
 

@@ -2,6 +2,8 @@ export interface ProductAttributes {
   name: string;
   description: string;
   slug: string;
+  cost_price: string;
+  variant_images: Array<string>;
 }
 
 export interface Product {

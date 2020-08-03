@@ -1,7 +1,7 @@
 @import "../../_variables.sass";
 @import "./animations.scss";
 
-.header {
+nav.header {
   position: absolute;
   top: 0;
   left: 0;
@@ -24,7 +24,7 @@
   }
 }
 
-.header_scrolled {
+nav.header_scrolled {
   position: fixed;
   top: 0;
   left: 0;
