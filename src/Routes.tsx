@@ -9,7 +9,7 @@ export default function Routes() {
     <Switch>
       <Route path="/" exact component={IndexContainer} />
       <Route path="/store" component={StoreContainer} />
-      <Route path="/product" component={ProductContainer} />
+      <Route path="/product/:slug_id" component={ProductContainer} />
     </Switch>
   )
 }

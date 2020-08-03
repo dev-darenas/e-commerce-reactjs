@@ -2,8 +2,12 @@ import React, { useState, useEffect } from 'react';
 import Navbar from 'react-bulma-components/lib/components/navbar';
 import './styles.scss';
 
-const Header = () => {
-  const [header, setHeader] = useState("header")
+interface PropsHeader {
+  changeHeader?: Boolean,
+}
+
+const Header = ({ changeHeader=true }:PropsHeader) => {
+  const [header, setHeader] = useState( changeHeader? "header" : "header_scrolled")
 
   const listenScrollEvent = (event) => {
     if (window.scrollY < 73) {
@@ -14,11 +18,13 @@ const Header = () => {
   }
 
   useEffect(() => {
-    window.addEventListener('scroll', listenScrollEvent);
+    if (changeHeader) {
+      window.addEventListener('scroll', listenScrollEvent);
+    }
   
     return () =>
       window.removeEventListener('scroll', listenScrollEvent);
-  }, []);
+  }, [changeHeader]);
 
   return (
     <Navbar className={header}>
@@ -31,10 +37,10 @@ const Header = () => {
       </Navbar.Brand>
       <Navbar.Menu >
         <Navbar.Container position="end">
-          <Navbar.Item href="#">
+          <Navbar.Item href="/">
             Inicio
           </Navbar.Item>
-          <Navbar.Item href="#">
+          <Navbar.Item href="/store">
             Tienda
           </Navbar.Item>
         </Navbar.Container>

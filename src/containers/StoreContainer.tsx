@@ -1,8 +1,13 @@
 import React from 'react';
+import Products from '../components/products'
+import Header from '../components/header';
 
 const StoreContainer = () => {
   return (
-    <div>Store</div>
+    <div>
+      <Header changeHeader={false} />
+      <Products />
+    </div>
   )
 }
 
