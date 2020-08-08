@@ -1,36 +1,40 @@
 import React from 'react';
 import Slider from 'react-animated-slider';
 import 'react-animated-slider/build/horizontal.css';
+import "./slider-animations.scss";
 
 const SliderContainer = () => {
   const content = [
     {
-      title: 'some',
+      title: 'Laia Swimwear',
       image: '/images/bg01.jpeg',
-      description: '',
-      button: 'button'
+      description: 'New style of Bikinis'
     },
     {
-      title: 'some',
+      title: 'Listos para el verano?',
       image: '/images/bg02.jpeg',
-      description: '',
-      button: 'button'
+      description: 'Bikinis Hechos con amor'
     },{
-      title: 'some',
+      title: 'Laia',
       image: '/images/bg03.jpeg',
-      description: '',
-      button: 'button'
+      description: 'Siéntete sexy tomando el sol'
     }
   ];
 
   return (
-    <Slider autoplay={3000}>
+    <Slider >
       {content.map((item, index) => (
         <div
           key={index}
+          className="slider-content"
           style={{ background: `url('${item.image}') no-repeat center center` }}
         >
-          <div className="center" />
+          <div className="inner has-text-centered">
+            <h1>{item.title}</h1>
+            <p>{item.description}</p>
+            <br />
+            <a className="button is-outlined is-large" href='/store'>Comprar Ahora</a>
+          </div>
         </div>
       ))}
     </Slider>

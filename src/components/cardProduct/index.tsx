@@ -1,19 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Card } from 'react-bulma-components';
 import { Product } from '../../types/Product';
+import './styles.scss';
 
 interface PropsCardProduct {
   product: Product,
 }
 
 const cardProduct = ({ product }:PropsCardProduct) => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const [bkImage, setBkImage] = useState(product.attributes.variant_images[0]);
+
+  const setBkImageMouse = (OnMouse) => {
+    if (OnMouse === 'onMouseOver' && product.attributes.variant_images[1]) {
+      setBkImage(product.attributes.variant_images[1])
+      return;
+    }
+
+    setBkImage(product.attributes.variant_images[0])
+  }
+
   return (
-    <Card>
-      <Card.Image src={`${process.env.REACT_APP_BASE_URL}${product.attributes.variant_images[0]}`} />
+    <Card className='card-product'>
+      <Card.Image 
+        src={`${process.env.REACT_APP_BASE_URL}${bkImage}`}
+        onMouseOver={() => setBkImageMouse('onMouseOver')}
+        onMouseOut={() => setBkImageMouse('onMouseOut')}
+      />
       <Card.Content>
-        <p className='has-text-centered is-size-5' >{product.attributes.name}</p>
-        <p className='has-text-centered is-size-7 has-text-weight-light' >{product.attributes.description}</p>
-        <h4 className='has-text-centered' >{product.attributes.cost_price} € </h4>
+        <div className='title is-size-5' >
+          {product.attributes.name}
+        </div>
+        <div >
+          {product.attributes.cost_price} €
+        </div>
       </Card.Content>
     </Card>
   )
