@@ -9,7 +9,8 @@ const IndexContainer = () => {
       <Header />
       <Slider />
       <hr/>
-      <h2 className="has-text-centered"> Mas populares </h2>
+      <h1 className="dancing has-text-centered is-size-2"> Mas populares </h1>
+      <br />
       <PopularProducts />
     </div>
   )

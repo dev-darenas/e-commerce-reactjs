@@ -22,7 +22,7 @@ const SliderContainer = () => {
   ];
 
   return (
-    <Slider >
+    <Slider autoplay={3000} >
       {content.map((item, index) => (
         <div
           key={index}
