@@ -21,21 +21,23 @@ const cardProduct = ({ product }:PropsCardProduct) => {
   }
 
   return (
-    <Card className='card-product'>
-      <Card.Image 
-        src={`${process.env.REACT_APP_BASE_URL}${bkImage}`}
-        onMouseOver={() => setBkImageMouse('onMouseOver')}
-        onMouseOut={() => setBkImageMouse('onMouseOut')}
-      />
-      <Card.Content>
-        <div className='title is-size-5' >
-          {product.attributes.name}
-        </div>
-        <div >
-          {product.attributes.cost_price} €
-        </div>
-      </Card.Content>
-    </Card>
+    <a href={`/product/${product.attributes.slug}`} >
+      <Card className='card-product'>
+        <Card.Image 
+          src={`${process.env.REACT_APP_BASE_URL}${bkImage}`}
+          onMouseOver={() => setBkImageMouse('onMouseOver')}
+          onMouseOut={() => setBkImageMouse('onMouseOut')}
+        />
+        <Card.Content>
+          <div className='title is-size-5' >
+            {product.attributes.name}
+          </div>
+          <div >
+            {product.attributes.cost_price} €
+          </div>
+        </Card.Content>
+      </Card>
+    </a>
   )
 }
 

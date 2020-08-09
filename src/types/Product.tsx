@@ -4,6 +4,7 @@ export interface ProductAttributes {
   slug: string;
   cost_price: string;
   variant_images: Array<string>;
+  carousel: Array<string>;
 }
 
 export interface Product {
