@@ -3,6 +3,7 @@ export interface ProductAttributes {
   description: string;
   slug: string;
   cost_price: string;
+  whatsapp: string;
   variant_images: Array<string>;
   carousel: Array<string>;
 }
