@@ -9,6 +9,7 @@ import { StartGetPopularProducts } from '../../actions/ProductActions'
 import Carousel from '@brainhubeu/react-carousel';
 import '@brainhubeu/react-carousel/lib/style.css';
 import CardProduct from '../../components/cardProduct'
+import { isBrowser } from "react-device-detect";
 
 interface LinkStateProps {
   products: {
@@ -34,7 +35,7 @@ const PopularProduct = ({
 
   return (
     <Carousel
-      slidesPerPage={3}
+      slidesPerPage={isBrowser? 3 : 1}
       infinite
       centered
       clickToChange
