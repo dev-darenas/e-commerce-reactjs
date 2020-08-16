@@ -13,6 +13,9 @@ import PopularProducts from '../components/popularProducts';
 import { Columns } from 'react-bulma-components';
 import Zoom from 'react-medium-image-zoom'
 import 'react-medium-image-zoom/dist/styles.css'
+import { MobileView, BrowserView } from "react-device-detect";
+import ImageGallery from 'react-image-gallery';
+import "react-image-gallery/styles/scss/image-gallery.scss";
 
 interface LinkStateProps {
   currentProduct: Product | null
@@ -31,6 +34,7 @@ const ProductContainer = ({
 
   let { slug_id } = useParams();
   const [bkImage, setBkImage] = useState('');
+  const [imgGalery, setImgGalery] = useState([]);
 
   useEffect(() => {
     if (currentProduct === null) {
@@ -38,6 +42,17 @@ const ProductContainer = ({
     }
     if (currentProduct !== null && bkImage === ''){
       setBkImage(currentProduct.attributes.variant_images[0])
+
+      let imgGaleryTemp:any = [];
+      currentProduct.attributes.variant_images.forEach((img, index) => {
+        let item:any = { 
+          original: `${process.env.REACT_APP_BASE_URL}${img}`,
+          thumbnail: `${process.env.REACT_APP_BASE_URL}${currentProduct.attributes.carousel[index].img}`,
+        };
+        imgGaleryTemp.push(item);
+      })
+
+      setImgGalery(imgGaleryTemp);
     }
   });
 
@@ -45,33 +60,34 @@ const ProductContainer = ({
   return (
     <div>
       <Header changeHeader={false} />
-      <br />
-      <br />
-      <br />
-      <br />
       <Container>
-        <Columns >
-          <Columns.Column size={1} >
-            {
-              currentProduct.attributes.carousel.map((img, index) => (
+        <BrowserView>
+          <br />
+          <br />
+          <br />
+          <br />
+          <Columns >
+            <Columns.Column size={1} >
+              {
+                currentProduct.attributes.carousel.map((img, index) => (
+                  <img
+                    key={img.alt}
+                    src={`${process.env.REACT_APP_BASE_URL}${img.img}`}
+                    alt={img.alt}
+                    onClick={() => setBkImage(currentProduct.attributes.variant_images[index])}
+                  />
+                ))
+              }
+            </Columns.Column>
+            <Columns.Column size={5}>
+              <Zoom>
                 <img
-                  key={img.alt}
-                  src={`${process.env.REACT_APP_BASE_URL}${img.img}`}
-                  alt={img.alt}
-                  onClick={() => setBkImage(currentProduct.attributes.variant_images[index])}
+                  alt="laia"
+                  src={`${process.env.REACT_APP_BASE_URL}${bkImage}`}
                 />
-              ))
-            }
-          </Columns.Column>
-          <Columns.Column size={5}>
-            <Zoom>
-              <img
-                alt="laia"
-                src={`${process.env.REACT_APP_BASE_URL}${bkImage}`}
-              />
-            </Zoom>
-          </Columns.Column>
-          <Columns.Column size={5}>
+              </Zoom>
+            </Columns.Column>
+            <Columns.Column size={5}>
             <h2 className='is-size-1'>
               { currentProduct.attributes.name }
             </h2>
@@ -90,7 +106,34 @@ const ProductContainer = ({
               Comprar
             </a>
           </Columns.Column>
-        </Columns>
+          </Columns>
+        </BrowserView>
+
+        <MobileView>
+          <h2 className='has-text-centered is-size-2'>
+            { currentProduct.attributes.name }
+          </h2>
+          <ImageGallery
+            items={imgGalery}
+          />
+          <hr />
+          <p className='has-text-centered is-size-4'>
+            { currentProduct.attributes.description }
+          </p>
+
+          <h3 className='is-size-3 has-text-weight-bold has-text-centered'>
+            { currentProduct.attributes.cost_price } €
+          </h3>
+
+          <a
+            href={`https://wa.me/${currentProduct.attributes.whatsapp}?text=Me encantaria comprar este producto ${process.env.REACT_APP_LOCAL_URL}/product/${currentProduct.attributes.slug}`}
+            target='_black'
+            className="button is-fullwidth"
+          >
+            Comprar
+          </a>
+        </MobileView>
+
         <h1 className="dancing has-text-centered is-size-2"> Mas populares </h1>
         <br />
         <PopularProducts />

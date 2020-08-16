@@ -9,6 +9,7 @@ import { StartGetProducts } from '../../actions/ProductActions'
 import CardProduct from '../../components/cardProduct'
 import Columns from 'react-bulma-components/lib/components/columns';
 import Container from 'react-bulma-components/lib/components/container';
+import { isBrowser } from "react-device-detect";
 
 interface LinkStateProps {
   products: {
@@ -34,12 +35,23 @@ const PopularProduct = ({
 
   return (
     <Container>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <h1>Todos los productos</h1>
+      { 
+        isBrowser?
+          <div>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <h1>Todos los productos</h1>
+          </div> :
+          <div>
+            <br />
+            <h1 className="has-text-centered is-size-3"> Mas populares </h1>
+          </div>
+      }
+
+      
       <hr />
       <Columns variableGap={{ mobile: 1, tablet: 0, desktop: 3, widescreen: 8, fullhd: 2 }} >
         {

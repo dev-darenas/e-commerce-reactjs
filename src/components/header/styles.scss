@@ -1,11 +1,17 @@
 @import "../../_variables.sass";
 @import "./animations.scss";
 
-.level {
+nav.header-level {
   background-color: $base-store-color;
+  margin-bottom: 0rem !important;
 
   .logo {
     width: 50px;
+  }
+
+  a {
+    color: #ffffff;
+    margin: 1rem;
   }
 }
 
