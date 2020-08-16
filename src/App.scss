@@ -1,4 +1,5 @@
 @import "~react-bulma-components/src/index.sass";
+@import "./_variables.sass";
 
 body {
   font-family: 'Lato', sans-serif !important;
@@ -10,4 +11,21 @@ div.slider {
 
 .dancing {
   font-family: 'Dancing Script', cursive;
+}
+
+a {
+  &.is-laia-color {
+    background-color: transparent;
+    border-color: $base-store-color;
+    color: $base-store-color;
+  }
+
+  &.is-laia-color:hover {
+    background-color: $base-store-color;
+    color: #ffffff;
+  }
+}
+
+.container {
+  padding: 1rem;
 }

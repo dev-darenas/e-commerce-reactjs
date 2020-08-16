@@ -1,4 +1,4 @@
-@import "../../_variables.sass";
+@import "../../App.scss";
 
 .slider-content {
   .inner {
@@ -146,11 +146,5 @@
 
 	p {
 		color: #FFFFFF;
-	}
-
-	.is-laia-color {
-		background-color: transparent;
-    border-color: $base-store-color;
-    color: $base-store-color;
 	}
 }

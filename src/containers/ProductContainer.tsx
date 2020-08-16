@@ -124,16 +124,19 @@ const ProductContainer = ({
           <h3 className='is-size-3 has-text-weight-bold has-text-centered'>
             { currentProduct.attributes.cost_price } €
           </h3>
-
-          <a
-            href={`https://wa.me/${currentProduct.attributes.whatsapp}?text=Me encantaria comprar este producto ${process.env.REACT_APP_LOCAL_URL}/product/${currentProduct.attributes.slug}`}
-            target='_black'
-            className="button is-fullwidth"
-          >
-            Comprar
-          </a>
+          
+          <Container className="has-text-centered">
+            <a
+              href={`https://wa.me/${currentProduct.attributes.whatsapp}?text=Me encantaria comprar este producto ${process.env.REACT_APP_LOCAL_URL}/product/${currentProduct.attributes.slug}`}
+              target='_black'
+              className="button is-laia-color"
+            >
+              Comprar
+            </a>
+          </Container>
         </MobileView>
 
+        <hr />
         <h1 className="dancing has-text-centered is-size-2"> Mas populares </h1>
         <br />
         <PopularProducts />
