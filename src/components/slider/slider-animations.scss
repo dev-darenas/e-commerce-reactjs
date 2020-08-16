@@ -1,3 +1,5 @@
+@import "../../_variables.sass";
+
 .slider-content {
   .inner {
     padding: 0 70px;
@@ -134,4 +136,21 @@
 .slide.animateOut section span strong {
 	-webkit-transition-delay: 0s;
 					transition-delay: 0s;
+}
+
+.header-tittle {
+	position: absolute;
+	margin-top: 2.5rem;
+	z-index: 1000;
+	width: 100%;
+
+	p {
+		color: #FFFFFF;
+	}
+
+	.is-laia-color {
+		background-color: transparent;
+    border-color: $base-store-color;
+    color: $base-store-color;
+	}
 }

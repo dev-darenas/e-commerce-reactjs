@@ -60,9 +60,19 @@ const SliderContainer = () => {
         </Slider>
       </BrowserView>
       <MobileView>
+        <div className="header-tittle has-text-centered">
+          <p className="dancing is-size-2" >Laia Swimwear</p>
+          <p className="is-size-5" >Bikinis Hechos con amor</p>
+          <br />
+          <a className="button is-laia-color is-outlined is-small" href='/store'>Comprar</a>
+        </div>
         <ImageGallery
           items={images}
           showThumbnails={false}
+          infinite={true}
+          showFullscreenButton={false}
+          useBrowserFullscreen={false}
+          autoPlay={true}
         />
       </MobileView>
     </div>
