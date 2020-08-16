@@ -35,7 +35,7 @@ const PopularProduct = ({
 
   return (
     <Carousel
-      slidesPerPage={isBrowser? 3 : 1}
+      slidesPerPage={isBrowser? 3 : 2}
       infinite
       centered
       clickToChange
