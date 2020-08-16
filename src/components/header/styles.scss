@@ -1,6 +1,14 @@
 @import "../../_variables.sass";
 @import "./animations.scss";
 
+.level {
+  background-color: $base-store-color;
+
+  .logo {
+    width: 50px;
+  }
+}
+
 nav {
   &.header {
     position: absolute;

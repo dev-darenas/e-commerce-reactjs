@@ -5,7 +5,7 @@ import Header from '../components/header';
 
 const IndexContainer = () => {
   return (
-    <div>
+    <div>  
       <Header />
       <Slider />
       <hr/>
