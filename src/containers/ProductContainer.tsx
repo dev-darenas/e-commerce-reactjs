@@ -127,7 +127,7 @@ const ProductContainer = ({
           
           <Container className="has-text-centered">
             <a
-              href={`https://wa.me/${currentProduct.attributes.whatsapp}?text=Me encantaria comprar este producto ${process.env.REACT_APP_LOCAL_URL}/product/${currentProduct.attributes.slug}`}
+              href={`https://wa.me/${currentProduct.attributes.whatsapp}?text=Me encantaria comprar este producto ${process.env.REACT_APP_LOCAL_URL}product/${currentProduct.attributes.slug}`}
               target='_black'
               className="button is-laia-color"
             >
